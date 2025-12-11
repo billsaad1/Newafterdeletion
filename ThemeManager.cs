@@ -174,12 +174,26 @@ namespace HumanitarianProjectManagement.UI
         private static void ApplyThemeToControlRecursive(Control control)
         {
             ApplyThemeToControl(control);
-            foreach (Control childControl in control.Controls)
+
+            if (control is TabControl tabControl)
             {
-                // Special handling for MenuStrip items as they are not in Controls collection directly for styling
-                if (!(control is MenuStrip))
+                foreach (TabPage tabPage in tabControl.TabPages)
                 {
-                    ApplyThemeToControlRecursive(childControl);
+                    tabPage.BackColor = PanelBackgroundColor;
+                    foreach (Control childControl in tabPage.Controls)
+                    {
+                        ApplyThemeToControlRecursive(childControl);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control childControl in control.Controls)
+                {
+                    if (!(control is MenuStrip))
+                    {
+                        ApplyThemeToControlRecursive(childControl);
+                    }
                 }
             }
         }

@@ -94,26 +94,49 @@ namespace HumanitarianProjectManagement.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.pnlQuickStats, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pnlQuickActions, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 120);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 456);
-            this.tableLayoutPanel1.TabIndex = 3;
-
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlProjects = new System.Windows.Forms.Panel();
+            this.pnlMonitoring = new System.Windows.Forms.Panel();
+            // ...
+            // flowLayoutPanel1
+            //
+            this.flowLayoutPanel1.Controls.Add(this.pnlQuickStats);
+            this.flowLayoutPanel1.Controls.Add(this.pnlQuickActions);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 123);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(854, 212);
+            this.flowLayoutPanel1.TabIndex = 3;
             // 
             // pnlDashboardCards
             // 
             this.pnlDashboardCards.AutoScroll = true;
-            this.pnlDashboardCards.Controls.Add(this.tableLayoutPanel1);
-            this.pnlDashboardCards.Controls.Add(this.pnlWelcomeSection);
             this.pnlDashboardCards.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboardCards.Location = new System.Drawing.Point(30, 30);
             this.pnlDashboardCards.Name = "pnlDashboardCards";
             this.pnlDashboardCards.Size = new System.Drawing.Size(860, 576);
             this.pnlDashboardCards.TabIndex = 0;
+
+            //
+            // tableLayoutPanel1
+            //
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.pnlWelcomeSection, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pnlProjects, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pnlMonitoring, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 576);
+            this.tableLayoutPanel1.TabIndex = 0;
+            this.pnlDashboardCards.Controls.Add(this.tableLayoutPanel1);
 
             // ... The rest of the designer file is the same
 
@@ -124,6 +147,53 @@ namespace HumanitarianProjectManagement.Forms
         #endregion
 
         // All other control declarations are the same...
+        private System.Windows.Forms.MenuStrip mainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip mainStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.Panel pnlMainContainer;
+        private System.Windows.Forms.Panel pnlMainContent;
+        private System.Windows.Forms.Panel pnlDashboardCards;
+        private System.Windows.Forms.Panel pnlQuickStats;
+        private System.Windows.Forms.Label lblQuickStatsTitle;
+        private System.Windows.Forms.Panel pnlStatsCards;
+        private System.Windows.Forms.Panel pnlProjectsCard;
+        private System.Windows.Forms.Label lblProjectsCount;
+        private System.Windows.Forms.Label lblProjectsLabel;
+        private System.Windows.Forms.Panel pnlBeneficiariesCard;
+        private System.Windows.Forms.Label lblBeneficiariesCount;
+        private System.Windows.Forms.Label lblBeneficiariesLabel;
+        private System.Windows.Forms.Panel pnlBudgetCard;
+        private System.Windows.Forms.Label lblBudgetAmount;
+        private System.Windows.Forms.Label lblBudgetLabel;
+        private System.Windows.Forms.Panel pnlWelcomeSection;
+        private System.Windows.Forms.Label lblWelcomeTitle;
+        private System.Windows.Forms.Label lblWelcomeSubtitle;
+        private System.Windows.Forms.Panel pnlQuickActions;
+        private System.Windows.Forms.Label lblQuickActionsTitle;
+        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.Button btnNewProject;
+        private System.Windows.Forms.Button btnViewReports;
+        private System.Windows.Forms.Button btnManageBeneficiaries;
+        private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Panel pnlSidebarHeader;
+        private System.Windows.Forms.Label lblAppTitle;
+        private System.Windows.Forms.Button btnToggleSidebar;
+        private System.Windows.Forms.Panel pnlNavigation;
+        private System.Windows.Forms.Panel pnlSectionsGroup;
+        private System.Windows.Forms.Label lblSectionsTitle;
+        private System.Windows.Forms.TreeView tvwSections;
+        private System.Windows.Forms.Button btnAddSection;
+        private System.Windows.Forms.Panel pnlModulesGroup;
+        private System.Windows.Forms.Label lblModulesTitle;
+        private System.Windows.Forms.FlowLayoutPanel flpModuleButtons;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel pnlProjects;
+        private System.Windows.Forms.Panel pnlMonitoring;
     }
 }

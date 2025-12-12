@@ -23,8 +23,14 @@ namespace HumanitarianProjectManagement.Forms
         public DashboardForm()
         {
             InitializeComponent();
-            InitializeModernTheme();
-
+            try
+            {
+                InitializeModernTheme();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred during modern theme initialization: {ex.ToString()}", "Theme Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             _sectionService = new SectionService();
             _projectService = new ProjectService();
 

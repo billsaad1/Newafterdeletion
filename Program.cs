@@ -41,8 +41,15 @@ namespace HumanitarianProjectManagement
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                // If login is successful, run the main application form (Dashboard)
-                Application.Run(new DashboardForm());
+                try
+                {
+                    // If login is successful, run the main application form (Dashboard)
+                    Application.Run(new DashboardForm());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"A fatal error occurred while starting the application: {ex.ToString()}", "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

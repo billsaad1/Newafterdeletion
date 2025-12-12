@@ -603,7 +603,47 @@ namespace HumanitarianProjectManagement.Forms
             this.pnlDashboardCards.TabIndex = 0;
 
             // ... The rest of the designer file is the same
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pnlMainContainer);
+            this.Controls.Add(this.mainStatusStrip);
+            this.Controls.Add(this.mainMenuStrip);
+            this.MainMenuStrip = this.mainMenuStrip;
+            this.Name = "DashboardForm";
+            this.Text = "Humanitarian Project Management Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardForm_FormClosing);
 
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
+            this.mainStatusStrip.ResumeLayout(false);
+            this.mainStatusStrip.PerformLayout();
+            this.pnlMainContainer.ResumeLayout(false);
+            this.pnlMainContent.ResumeLayout(false);
+            this.pnlDashboardCards.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnlQuickStats.ResumeLayout(false);
+            this.pnlQuickStats.PerformLayout();
+            this.pnlStatsCards.ResumeLayout(false);
+            this.pnlProjectsCard.ResumeLayout(false);
+            this.pnlProjectsCard.PerformLayout();
+            this.pnlBeneficiariesCard.ResumeLayout(false);
+            this.pnlBeneficiariesCard.PerformLayout();
+            this.pnlBudgetCard.ResumeLayout(false);
+            this.pnlBudgetCard.PerformLayout();
+            this.pnlWelcomeSection.ResumeLayout(false);
+            this.pnlWelcomeSection.PerformLayout();
+            this.pnlQuickActions.ResumeLayout(false);
+            this.pnlQuickActions.PerformLayout();
+            this.pnlActionButtons.ResumeLayout(false);
+            this.pnlSidebar.ResumeLayout(false);
+            this.pnlSidebarHeader.ResumeLayout(false);
+            this.pnlSidebarHeader.PerformLayout();
+            this.pnlNavigation.ResumeLayout(false);
+            this.pnlSectionsGroup.ResumeLayout(false);
+            this.pnlSectionsGroup.PerformLayout();
+            this.pnlModulesGroup.ResumeLayout(false);
+            this.pnlModulesGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -22,33 +22,34 @@ namespace HumanitarianProjectManagement.Forms
 
         public DashboardForm()
         {
-            InitializeComponent();
             try
             {
+                InitializeComponent();
                 InitializeModernTheme();
+
+                _sectionService = new SectionService();
+                _projectService = new ProjectService();
+
+                // Wire up event handlers
+                this.Load += DashboardForm_Load;
+                ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
+
+
+                // Set up hover effects for buttons
+                SetupButtonHoverEffects();
+
+                // Initialize dashboard data
+                InitializeDashboardData();
+
+                // Accessibility Enhancements
+                SetupAccessibility();
+
+                ApplyLocalization();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred during modern theme initialization: {ex.ToString()}", "Theme Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"A critical error occurred during dashboard initialization and the application may not function correctly. Please report this issue.\n\nError: {ex.ToString()}", "Dashboard Initialization Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            _sectionService = new SectionService();
-            _projectService = new ProjectService();
-
-            // Wire up event handlers
-            this.Load += DashboardForm_Load;
-            ApplicationStyleManager.LanguageChanged += (s, e) => ApplyLocalization();
-
-
-            // Set up hover effects for buttons
-            SetupButtonHoverEffects();
-
-            // Initialize dashboard data
-            InitializeDashboardData();
-
-            // Accessibility Enhancements
-            SetupAccessibility();
-
-            ApplyLocalization();
         }
 
         private void ApplyLocalization()

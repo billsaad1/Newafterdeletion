@@ -52,11 +52,15 @@ namespace HumanitarianProjectManagement.Forms
             {
                 this.RightToLeft = RightToLeft.Yes;
                 this.RightToLeftLayout = true;
+                pnlSidebar.Dock = DockStyle.Right;
+                pnlMainContent.Dock = DockStyle.Fill;
             }
             else
             {
                 this.RightToLeft = RightToLeft.No;
                 this.RightToLeftLayout = false;
+                pnlSidebar.Dock = DockStyle.Left;
+                pnlMainContent.Dock = DockStyle.Fill;
             }
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));

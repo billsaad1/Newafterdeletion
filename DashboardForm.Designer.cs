@@ -63,8 +63,6 @@ namespace HumanitarianProjectManagement.Forms
             this.pnlModulesGroup = new System.Windows.Forms.Panel();
             this.lblModulesTitle = new System.Windows.Forms.Label();
             this.flpModuleButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlProjects = new System.Windows.Forms.Panel();
-            this.pnlMonitoring = new System.Windows.Forms.Panel();
 
             this.mainMenuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
@@ -92,11 +90,10 @@ namespace HumanitarianProjectManagement.Forms
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pnlQuickStats, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pnlQuickActions, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnlQuickActions, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 120);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";

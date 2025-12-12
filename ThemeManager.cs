@@ -136,6 +136,10 @@ namespace HumanitarianProjectManagement.UI
                     }
                 }
             }
+            else if (control is TabPage tabPage)
+            {
+                tabPage.BackColor = FormBackgroundColor;
+            }
             // Add more control types as needed (e.g., GroupBox, TabControl)
         }
 

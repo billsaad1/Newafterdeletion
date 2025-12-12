@@ -349,7 +349,6 @@
             // pnlMainContent
             // 
             this.pnlMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.pnlMainContent.Controls.Add(this.pnlDashboardCards);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(280, 0);
             this.pnlMainContent.Name = "pnlMainContent";
@@ -357,18 +356,27 @@
             this.pnlMainContent.Size = new System.Drawing.Size(920, 636);
             this.pnlMainContent.TabIndex = 1;
 
-            // 
-            // pnlDashboardCards
-            // 
-            this.pnlDashboardCards.AutoScroll = true;
-            this.pnlDashboardCards.Controls.Add(this.pnlQuickActions);
-            this.pnlDashboardCards.Controls.Add(this.pnlQuickStats);
-            this.pnlDashboardCards.Controls.Add(this.pnlWelcomeSection);
-            this.pnlDashboardCards.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDashboardCards.Location = new System.Drawing.Point(30, 30);
-            this.pnlDashboardCards.Name = "pnlDashboardCards";
-            this.pnlDashboardCards.Size = new System.Drawing.Size(860, 576);
-            this.pnlDashboardCards.TabIndex = 0;
+            //
+            // tlpMainContent
+            //
+            this.tlpMainContent = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlMainContent.Controls.Add(this.tlpMainContent);
+            this.tlpMainContent.SuspendLayout();
+            this.tlpMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMainContent.ColumnCount = 1;
+            this.tlpMainContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMainContent.RowCount = 4;
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F)); // Welcome section
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F)); // Quick Stats
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F)); // Quick Actions
+            this.tlpMainContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F)); // Spacer
+            this.tlpMainContent.Name = "tlpMainContent";
+
+            // Add existing panels to the TableLayoutPanel
+            this.tlpMainContent.Controls.Add(this.pnlWelcomeSection, 0, 0);
+            this.tlpMainContent.Controls.Add(this.pnlQuickStats, 0, 1);
+            this.tlpMainContent.Controls.Add(this.pnlQuickActions, 0, 2);
+
 
             // 
             // pnlWelcomeSection
@@ -440,16 +448,22 @@
             this.lblQuickStatsTitle.Text = "Quick Stats";
 
             // 
-            // pnlStatsCards
+            // flpStatsCards
             // 
-            this.pnlStatsCards.Controls.Add(this.pnlBudgetCard);
-            this.pnlStatsCards.Controls.Add(this.pnlBeneficiariesCard);
-            this.pnlStatsCards.Controls.Add(this.pnlProjectsCard);
-            this.pnlStatsCards.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlStatsCards.Location = new System.Drawing.Point(30, 80);
-            this.pnlStatsCards.Name = "pnlStatsCards";
-            this.pnlStatsCards.Size = new System.Drawing.Size(800, 90);
-            this.pnlStatsCards.TabIndex = 1;
+            this.flpStatsCards = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlQuickStats.Controls.Add(this.flpStatsCards);
+            this.flpStatsCards.SuspendLayout();
+            this.flpStatsCards.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpStatsCards.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
+            this.flpStatsCards.Name = "flpStatsCards";
+            this.flpStatsCards.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.flpStatsCards.Size = new System.Drawing.Size(800, 90);
+            this.flpStatsCards.TabIndex = 1;
+            this.flpStatsCards.WrapContents = true;
+
+            this.flpStatsCards.Controls.Add(this.pnlProjectsCard);
+            this.flpStatsCards.Controls.Add(this.pnlBeneficiariesCard);
+            this.flpStatsCards.Controls.Add(this.pnlBudgetCard);
 
             // 
             // pnlProjectsCard
@@ -600,16 +614,20 @@
             this.lblQuickActionsTitle.Text = "Quick Actions";
 
             // 
-            // pnlActionButtons
+            // flpActionButtons
             // 
-            this.pnlActionButtons.Controls.Add(this.btnManageBeneficiaries);
-            this.pnlActionButtons.Controls.Add(this.btnViewReports);
-            this.pnlActionButtons.Controls.Add(this.btnNewProject);
-            this.pnlActionButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlActionButtons.Location = new System.Drawing.Point(30, 80);
-            this.pnlActionButtons.Name = "pnlActionButtons";
-            this.pnlActionButtons.Size = new System.Drawing.Size(800, 70);
-            this.pnlActionButtons.TabIndex = 1;
+            this.flpActionButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlQuickActions.Controls.Add(this.flpActionButtons);
+            this.flpActionButtons.SuspendLayout();
+            this.flpActionButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpActionButtons.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
+            this.flpActionButtons.Name = "flpActionButtons";
+            this.flpActionButtons.Size = new System.Drawing.Size(800, 70);
+            this.flpActionButtons.TabIndex = 1;
+
+            this.flpActionButtons.Controls.Add(this.btnNewProject);
+            this.flpActionButtons.Controls.Add(this.btnViewReports);
+            this.flpActionButtons.Controls.Add(this.btnManageBeneficiaries);
 
             // 
             // btnNewProject
@@ -761,9 +779,11 @@
         private System.Windows.Forms.Label lblBudgetAmount;
         private System.Windows.Forms.Panel pnlQuickActions;
         private System.Windows.Forms.Label lblQuickActionsTitle;
-        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.FlowLayoutPanel flpActionButtons;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnViewReports;
         private System.Windows.Forms.Button btnManageBeneficiaries;
+        private System.Windows.Forms.TableLayoutPanel tlpMainContent;
+        private System.Windows.Forms.FlowLayoutPanel flpStatsCards;
     }
 }

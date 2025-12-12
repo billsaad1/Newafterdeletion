@@ -136,6 +136,23 @@ namespace HumanitarianProjectManagement.UI
                     }
                 }
             }
+            else if (control is TabControl tabControl)
+            {
+                // Custom drawing for TabControl
+                tabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
+                tabControl.DrawItem += (sender, e) => {
+                    // Set the background color for the tab
+                    using (var brush = new SolidBrush(e.State == DrawItemState.Selected ? FormBackgroundColor : PanelBackgroundColor))
+                    {
+                        e.Graphics.FillRectangle(brush, e.Bounds);
+                    }
+
+                    // Set the text color
+                    Rectangle paddedBounds = e.Bounds;
+                    paddedBounds.Inflate(-2, -2);
+                    TextRenderer.DrawText(e.Graphics, tabControl.TabPages[e.Index].Text, GlobalFont, paddedBounds, TextColor, TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter);
+                };
+            }
             // Add more control types as needed (e.g., GroupBox, TabControl)
         }
 
@@ -174,26 +191,12 @@ namespace HumanitarianProjectManagement.UI
         private static void ApplyThemeToControlRecursive(Control control)
         {
             ApplyThemeToControl(control);
-
-            if (control is TabControl tabControl)
+            foreach (Control childControl in control.Controls)
             {
-                foreach (TabPage tabPage in tabControl.TabPages)
+                // Special handling for MenuStrip items as they are not in Controls collection directly for styling
+                if (!(control is MenuStrip))
                 {
-                    tabPage.BackColor = PanelBackgroundColor;
-                    foreach (Control childControl in tabPage.Controls)
-                    {
-                        ApplyThemeToControlRecursive(childControl);
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control childControl in control.Controls)
-                {
-                    if (!(control is MenuStrip))
-                    {
-                        ApplyThemeToControlRecursive(childControl);
-                    }
+                    ApplyThemeToControlRecursive(childControl);
                 }
             }
         }

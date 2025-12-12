@@ -86,7 +86,6 @@
             this.pnlBudgetCard.SuspendLayout();
             this.pnlWelcomeSection.SuspendLayout();
             this.pnlQuickActions.SuspendLayout();
-            this.pnlActionButtons.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.pnlSidebarHeader.SuspendLayout();
             this.pnlNavigation.SuspendLayout();
@@ -589,7 +588,6 @@
             // pnlQuickActions
             // 
             this.pnlQuickActions.BackColor = System.Drawing.Color.White;
-            this.pnlQuickActions.Controls.Add(this.pnlActionButtons);
             this.pnlQuickActions.Controls.Add(this.lblQuickActionsTitle);
             this.pnlQuickActions.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlQuickActions.Location = new System.Drawing.Point(0, 320);
@@ -724,7 +722,6 @@
             this.pnlWelcomeSection.PerformLayout();
             this.pnlQuickActions.ResumeLayout(false);
             this.pnlQuickActions.PerformLayout();
-            this.pnlActionButtons.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebarHeader.ResumeLayout(false);
             this.pnlSidebarHeader.PerformLayout();
@@ -779,7 +776,6 @@
         private System.Windows.Forms.Label lblBudgetAmount;
         private System.Windows.Forms.Panel pnlQuickActions;
         private System.Windows.Forms.Label lblQuickActionsTitle;
-        private System.Windows.Forms.FlowLayoutPanel flpActionButtons;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnViewReports;
         private System.Windows.Forms.Button btnManageBeneficiaries;

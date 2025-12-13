@@ -88,8 +88,16 @@ namespace HumanitarianProjectManagement.Forms
         private void ApplyDashboardStyles()
         {
             // Apply theme to sidebar
-            pnlSidebar.BackColor = Color.FromArgb(31, 41, 55);
-            pnlSidebarHeader.BackColor = Color.FromArgb(17, 24, 39);
+            pnlSidebar.BackColor = Color.White;
+            pnlSidebarHeader.BackColor = Color.White;
+
+            // Adjust sidebar text for light theme
+            Color darkText = Color.FromArgb(31, 41, 55);
+            lblAppTitle.ForeColor = darkText;
+            lblSectionsTitle.ForeColor = Color.FromArgb(107, 114, 128);
+            lblModulesTitle.ForeColor = Color.FromArgb(107, 114, 128);
+            btnToggleSidebar.ForeColor = darkText;
+            tvwSections.BackColor = Color.White;
 
             // Apply theme to main content
             pnlMainContent.BackColor = Color.FromArgb(249, 250, 251);
@@ -124,7 +132,7 @@ namespace HumanitarianProjectManagement.Forms
             SetupButtonHover(btnViewReports, Color.FromArgb(16, 185, 129), Color.FromArgb(5, 150, 105));
             SetupButtonHover(btnManageBeneficiaries, Color.FromArgb(245, 158, 11), Color.FromArgb(217, 119, 6));
             SetupButtonHover(btnAddSection, Color.FromArgb(37, 99, 235), Color.FromArgb(29, 78, 216));
-            SetupButtonHover(btnToggleSidebar, Color.Transparent, Color.FromArgb(55, 65, 81));
+            SetupButtonHover(btnToggleSidebar, Color.Transparent, Color.FromArgb(229, 231, 235));
         }
 
         private void SetupButtonHover(Button button, Color normalColor, Color hoverColor)
@@ -209,7 +217,7 @@ namespace HumanitarianProjectManagement.Forms
             tvwSections.Nodes.Clear();
             TreeNode sectionsRootNode = new TreeNode("📁 Sections")
             {
-                ForeColor = Color.White // Removed Font property
+                ForeColor = Color.FromArgb(31, 41, 55)
             };
             tvwSections.Nodes.Add(sectionsRootNode);
 
@@ -223,7 +231,7 @@ namespace HumanitarianProjectManagement.Forms
                         TreeNode sectionNode = new TreeNode($"📂 {section.SectionName}")
                         {
                             Tag = section.SectionID,
-                            ForeColor = Color.FromArgb(209, 213, 219) // Removed Font property
+                            ForeColor = Color.FromArgb(55, 65, 81)
                         };
                         sectionsRootNode.Nodes.Add(sectionNode);
                     }
@@ -286,8 +294,8 @@ namespace HumanitarianProjectManagement.Forms
                 Height = 45,
                 Width = flpModuleButtons.ClientSize.Width - 20,
                 Margin = new Padding(0, 0, 0, 8),
-                BackColor = Color.FromArgb(55, 65, 81),
-                ForeColor = Color.White,
+                BackColor = Color.FromArgb(243, 244, 246),
+                ForeColor = Color.FromArgb(55, 65, 81),
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular),
                 TextAlign = ContentAlignment.MiddleLeft,
@@ -297,7 +305,7 @@ namespace HumanitarianProjectManagement.Forms
             btnModule.FlatAppearance.BorderSize = 0;
 
             // Add hover effect
-            SetupButtonHover(btnModule, Color.FromArgb(55, 65, 81), Color.FromArgb(75, 85, 99));
+            SetupButtonHover(btnModule, Color.FromArgb(229, 231, 235), Color.FromArgb(209, 213, 219));
 
             btnModule.Click += (sender, e) =>
             {

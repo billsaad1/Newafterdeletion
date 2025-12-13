@@ -23,7 +23,8 @@ namespace HumanitarianProjectManagement.Forms
         public DashboardForm()
         {
             InitializeComponent();
-            InitializeModernTheme();
+            ApplicationStyleManager.InitializeModernTheme(this);
+            ApplyDashboardStyles();
 
             _sectionService = new SectionService();
             _projectService = new ProjectService();
@@ -83,11 +84,9 @@ namespace HumanitarianProjectManagement.Forms
             this.lblModulesTitle.Text = resources.GetString("lblModulesTitle.Text");
         }
 
-        private void InitializeModernTheme()
-        {
-            // Apply modern theme colors
-            this.BackColor = Color.FromArgb(249, 250, 251);
 
+        private void ApplyDashboardStyles()
+        {
             // Apply theme to sidebar
             pnlSidebar.BackColor = Color.FromArgb(31, 41, 55);
             pnlSidebarHeader.BackColor = Color.FromArgb(17, 24, 39);
@@ -95,60 +94,27 @@ namespace HumanitarianProjectManagement.Forms
             // Apply theme to main content
             pnlMainContent.BackColor = Color.FromArgb(249, 250, 251);
 
-            // Apply theme to cards
-            ApplyCardStyling();
-
-            // Apply modern font
-            this.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
-        }
-
-        private void ApplyCardStyling()
-        {
             // Style welcome section
-            pnlWelcomeSection.BackColor = Color.White;
-            AddCardShadow(pnlWelcomeSection);
+            ApplicationStyleManager.ApplyCardStyling(pnlWelcomeSection);
+            lblWelcomeTitle.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblWelcomeTitle.ForeColor = Color.FromArgb(31, 41, 55);
+            lblWelcomeSubtitle.Font = new Font("Segoe UI", 12F);
+            lblWelcomeSubtitle.ForeColor = Color.FromArgb(107, 114, 128);
 
             // Style quick stats section
-            pnlQuickStats.BackColor = Color.White;
-            AddCardShadow(pnlQuickStats);
+            ApplicationStyleManager.ApplyCardStyling(pnlQuickStats);
+            lblQuickStatsTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblQuickStatsTitle.ForeColor = Color.FromArgb(31, 41, 55);
 
             // Style quick actions section
-            pnlQuickActions.BackColor = Color.White;
-            AddCardShadow(pnlQuickActions);
+            ApplicationStyleManager.ApplyCardStyling(pnlQuickActions);
+            lblQuickActionsTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblQuickActionsTitle.ForeColor = Color.FromArgb(31, 41, 55);
 
             // Style stat cards with rounded corners effect
-            StyleStatCard(pnlProjectsCard, Color.FromArgb(37, 99, 235));
-            StyleStatCard(pnlBeneficiariesCard, Color.FromArgb(16, 185, 129));
-            StyleStatCard(pnlBudgetCard, Color.FromArgb(245, 158, 11));
-        }
-
-        private void AddCardShadow(Panel panel)
-        {
-            // Simulate shadow effect with border
-            panel.Paint += (sender, e) =>
-            {
-                var rect = panel.ClientRectangle;
-                rect.Width -= 1;
-                rect.Height -= 1;
-                using (var pen = new Pen(Color.FromArgb(229, 231, 235), 1))
-                {
-                    e.Graphics.DrawRectangle(pen, rect);
-                }
-            };
-        }
-
-        private void StyleStatCard(Panel card, Color backgroundColor)
-        {
-            card.BackColor = backgroundColor;
-            card.Paint += (sender, e) =>
-            {
-                // Add subtle rounded corner effect
-                var rect = card.ClientRectangle;
-                using (var brush = new SolidBrush(backgroundColor))
-                {
-                    e.Graphics.FillRectangle(brush, rect);
-                }
-            };
+            ApplicationStyleManager.StyleStatCard(pnlProjectsCard, Color.FromArgb(37, 99, 235));
+            ApplicationStyleManager.StyleStatCard(pnlBeneficiariesCard, Color.FromArgb(16, 185, 129));
+            ApplicationStyleManager.StyleStatCard(pnlBudgetCard, Color.FromArgb(245, 158, 11));
         }
 
         private void SetupButtonHoverEffects()
@@ -163,15 +129,17 @@ namespace HumanitarianProjectManagement.Forms
 
         private void SetupButtonHover(Button button, Color normalColor, Color hoverColor)
         {
+            button.FlatAppearance.MouseOverBackColor = hoverColor;
+            button.FlatAppearance.MouseDownBackColor = hoverColor;
+            button.BackColor = normalColor;
+
             button.MouseEnter += (sender, e) =>
             {
-                button.BackColor = hoverColor;
                 button.Cursor = Cursors.Hand;
             };
 
             button.MouseLeave += (sender, e) =>
             {
-                button.BackColor = normalColor;
                 button.Cursor = Cursors.Default;
             };
         }
@@ -204,6 +172,19 @@ namespace HumanitarianProjectManagement.Forms
             pnlSidebar.AccessibleName = "Navigation sidebar";
             tvwSections.AccessibleName = "Sections tree view";
             flpModuleButtons.AccessibleName = "Module buttons panel";
+
+            // Quick stats accessibility
+            lblProjectsCount.AccessibleName = "Total projects count";
+            lblProjectsLabel.AccessibleName = "Total projects label";
+            lblBeneficiariesCount.AccessibleName = "Total beneficiaries count";
+            lblBeneficiariesLabel.AccessibleName = "Total beneficiaries label";
+            lblBudgetAmount.AccessibleName = "Total budget amount";
+            lblBudgetLabel.AccessibleName = "Total budget label";
+
+            // Quick actions accessibility
+            btnNewProject.AccessibleName = "New project button";
+            btnViewReports.AccessibleName = "View reports button";
+            btnManageBeneficiaries.AccessibleName = "Manage beneficiaries button";
         }
 
         private async void DashboardForm_Load(object sender, EventArgs e)
@@ -310,22 +291,13 @@ namespace HumanitarianProjectManagement.Forms
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular),
                 TextAlign = ContentAlignment.MiddleLeft,
-                Padding = new Padding(15, 0, 0, 0),
-                Cursor = Cursors.Hand
+                Padding = new Padding(15, 0, 0, 0)
             };
 
             btnModule.FlatAppearance.BorderSize = 0;
 
             // Add hover effect
-            btnModule.MouseEnter += (sender, e) =>
-            {
-                btnModule.BackColor = Color.FromArgb(75, 85, 99);
-            };
-
-            btnModule.MouseLeave += (sender, e) =>
-            {
-                btnModule.BackColor = Color.FromArgb(55, 65, 81);
-            };
+            SetupButtonHover(btnModule, Color.FromArgb(55, 65, 81), Color.FromArgb(75, 85, 99));
 
             btnModule.Click += (sender, e) =>
             {

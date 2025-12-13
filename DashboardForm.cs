@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using System.Globalization;
 using System.Threading;
+using System.Drawing.Drawing2D;
 
 namespace HumanitarianProjectManagement.Forms
 {
@@ -88,16 +89,16 @@ namespace HumanitarianProjectManagement.Forms
         private void ApplyDashboardStyles()
         {
             // Apply theme to sidebar
-            pnlSidebar.BackColor = Color.White;
-            pnlSidebarHeader.BackColor = Color.White;
+            pnlSidebar.BackColor = Color.FromArgb(29, 78, 216); // Fallback color
+            pnlSidebarHeader.BackColor = Color.Transparent; // Make header transparent to show gradient
+            pnlSidebar.Paint += PnlSidebar_Paint;
 
-            // Adjust sidebar text for light theme
-            Color darkText = Color.FromArgb(31, 41, 55);
-            lblAppTitle.ForeColor = darkText;
-            lblSectionsTitle.ForeColor = Color.FromArgb(107, 114, 128);
-            lblModulesTitle.ForeColor = Color.FromArgb(107, 114, 128);
-            btnToggleSidebar.ForeColor = darkText;
-            tvwSections.BackColor = Color.White;
+            // Adjust sidebar text for dark theme
+            lblAppTitle.ForeColor = Color.White;
+            lblSectionsTitle.ForeColor = Color.FromArgb(191, 219, 254);
+            lblModulesTitle.ForeColor = Color.FromArgb(191, 219, 254);
+            btnToggleSidebar.ForeColor = Color.White;
+            tvwSections.BackColor = Color.FromArgb(29, 78, 216);
 
             // Apply theme to main content
             pnlMainContent.BackColor = Color.FromArgb(249, 250, 251);
@@ -123,6 +124,16 @@ namespace HumanitarianProjectManagement.Forms
             ApplicationStyleManager.StyleStatCard(pnlProjectsCard, Color.FromArgb(37, 99, 235));
             ApplicationStyleManager.StyleStatCard(pnlBeneficiariesCard, Color.FromArgb(16, 185, 129));
             ApplicationStyleManager.StyleStatCard(pnlBudgetCard, Color.FromArgb(245, 158, 11));
+        }
+
+        private void PnlSidebar_Paint(object sender, PaintEventArgs e)
+        {
+            Color startColor = Color.FromArgb(29, 78, 216);
+            Color endColor = Color.FromArgb(37, 99, 235);
+            using (LinearGradientBrush brush = new LinearGradientBrush(pnlSidebar.ClientRectangle, startColor, endColor, 90F))
+            {
+                e.Graphics.FillRectangle(brush, pnlSidebar.ClientRectangle);
+            }
         }
 
         private void SetupButtonHoverEffects()
@@ -217,7 +228,7 @@ namespace HumanitarianProjectManagement.Forms
             tvwSections.Nodes.Clear();
             TreeNode sectionsRootNode = new TreeNode("📁 Sections")
             {
-                ForeColor = Color.FromArgb(31, 41, 55)
+                ForeColor = Color.White
             };
             tvwSections.Nodes.Add(sectionsRootNode);
 
@@ -231,7 +242,7 @@ namespace HumanitarianProjectManagement.Forms
                         TreeNode sectionNode = new TreeNode($"📂 {section.SectionName}")
                         {
                             Tag = section.SectionID,
-                            ForeColor = Color.FromArgb(55, 65, 81)
+                            ForeColor = Color.FromArgb(191, 219, 254)
                         };
                         sectionsRootNode.Nodes.Add(sectionNode);
                     }
@@ -294,8 +305,8 @@ namespace HumanitarianProjectManagement.Forms
                 Height = 45,
                 Width = flpModuleButtons.ClientSize.Width - 20,
                 Margin = new Padding(0, 0, 0, 8),
-                BackColor = Color.FromArgb(243, 244, 246),
-                ForeColor = Color.FromArgb(55, 65, 81),
+                BackColor = Color.FromArgb(37, 99, 235),
+                ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular),
                 TextAlign = ContentAlignment.MiddleLeft,
@@ -305,7 +316,7 @@ namespace HumanitarianProjectManagement.Forms
             btnModule.FlatAppearance.BorderSize = 0;
 
             // Add hover effect
-            SetupButtonHover(btnModule, Color.FromArgb(229, 231, 235), Color.FromArgb(209, 213, 219));
+            SetupButtonHover(btnModule, Color.FromArgb(29, 78, 216), Color.FromArgb(37, 99, 235));
 
             btnModule.Click += (sender, e) =>
             {

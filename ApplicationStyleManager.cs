@@ -30,6 +30,7 @@ namespace HumanitarianProjectManagement.UI
         public static void ApplyCardStyling(Panel panel)
         {
             panel.BackColor = Color.White;
+            panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Paint += (sender, e) =>
             {
                 var rect = panel.ClientRectangle;

@@ -348,7 +348,7 @@ namespace HumanitarianProjectManagement.Forms
             this.tlpDashboardLayout.RowCount = 3;
             this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpDashboardLayout.Size = new System.Drawing.Size(860, 576);
             this.tlpDashboardLayout.TabIndex = 0;
             //

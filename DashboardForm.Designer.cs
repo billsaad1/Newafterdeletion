@@ -1,4 +1,4 @@
-﻿namespace HumanitarianProjectManagement.Forms
+namespace HumanitarianProjectManagement.Forms
 {
     partial class DashboardForm
     {
@@ -39,7 +39,7 @@
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMainContainer = new System.Windows.Forms.Panel();
             this.pnlMainContent = new System.Windows.Forms.Panel();
-            this.pnlDashboardCards = new System.Windows.Forms.Panel();
+            this.tlpDashboardLayout = new System.Windows.Forms.TableLayoutPanel();
             this.pnlQuickStats = new System.Windows.Forms.Panel();
             this.lblQuickStatsTitle = new System.Windows.Forms.Label();
             this.pnlStatsCards = new System.Windows.Forms.Panel();
@@ -57,7 +57,7 @@
             this.lblWelcomeSubtitle = new System.Windows.Forms.Label();
             this.pnlQuickActions = new System.Windows.Forms.Panel();
             this.lblQuickActionsTitle = new System.Windows.Forms.Label();
-            this.pnlActionButtons = new System.Windows.Forms.Panel();
+            this.flpActionButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNewProject = new System.Windows.Forms.Button();
             this.btnViewReports = new System.Windows.Forms.Button();
             this.btnManageBeneficiaries = new System.Windows.Forms.Button();
@@ -73,7 +73,6 @@
             this.pnlModulesGroup = new System.Windows.Forms.Panel();
             this.lblModulesTitle = new System.Windows.Forms.Label();
             this.flpModuleButtons = new System.Windows.Forms.FlowLayoutPanel();
-
             this.mainMenuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             this.pnlMainContainer.SuspendLayout();
@@ -93,10 +92,9 @@
             this.pnlSectionsGroup.SuspendLayout();
             this.pnlModulesGroup.SuspendLayout();
             this.SuspendLayout();
-
-            // 
+            //
             // mainMenuStrip
-            // 
+            //
             this.mainMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainMenuStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -108,53 +106,47 @@
             this.mainMenuStrip.Size = new System.Drawing.Size(1200, 32);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
-
-            // 
+            //
             // fileToolStripMenuItem
-            // 
+            //
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 24);
             this.fileToolStripMenuItem.Text = "&File";
-
-            // 
+            //
             // settingsToolStripMenuItem
-            // 
+            //
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-
-            // 
+            //
             // exitToolStripMenuItem
-            // 
+            //
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-
-            // 
+            //
             // helpToolStripMenuItem
-            // 
+            //
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.helpToolStripMenuItem.Text = "&Help";
-
-            // 
+            //
             // aboutToolStripMenuItem
-            // 
+            //
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-
-            // 
+            //
             // mainStatusStrip
-            // 
+            //
             this.mainStatusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
             this.mainStatusStrip.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -165,17 +157,15 @@
             this.mainStatusStrip.Size = new System.Drawing.Size(1200, 22);
             this.mainStatusStrip.TabIndex = 1;
             this.mainStatusStrip.Text = "statusStrip1";
-
-            // 
+            //
             // statusLabel
-            // 
+            //
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(39, 17);
             this.statusLabel.Text = "Ready";
-
-            // 
+            //
             // pnlMainContainer
-            // 
+            //
             this.pnlMainContainer.Controls.Add(this.pnlMainContent);
             this.pnlMainContainer.Controls.Add(this.pnlSidebar);
             this.pnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -183,10 +173,9 @@
             this.pnlMainContainer.Name = "pnlMainContainer";
             this.pnlMainContainer.Size = new System.Drawing.Size(1200, 636);
             this.pnlMainContainer.TabIndex = 2;
-
-            // 
+            //
             // pnlSidebar
-            // 
+            //
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(41)))), ((int)(((byte)(55)))));
             this.pnlSidebar.Controls.Add(this.pnlNavigation);
             this.pnlSidebar.Controls.Add(this.pnlSidebarHeader);
@@ -195,10 +184,9 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(280, 636);
             this.pnlSidebar.TabIndex = 0;
-
-            // 
+            //
             // pnlSidebarHeader
-            // 
+            //
             this.pnlSidebarHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
             this.pnlSidebarHeader.Controls.Add(this.btnToggleSidebar);
             this.pnlSidebarHeader.Controls.Add(this.lblAppTitle);
@@ -208,10 +196,9 @@
             this.pnlSidebarHeader.Padding = new System.Windows.Forms.Padding(20, 16, 20, 16);
             this.pnlSidebarHeader.Size = new System.Drawing.Size(280, 70);
             this.pnlSidebarHeader.TabIndex = 0;
-
-            // 
+            //
             // lblAppTitle
-            // 
+            //
             this.lblAppTitle.AutoSize = true;
             this.lblAppTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblAppTitle.ForeColor = System.Drawing.Color.White;
@@ -220,10 +207,9 @@
             this.lblAppTitle.Size = new System.Drawing.Size(180, 25);
             this.lblAppTitle.TabIndex = 0;
             this.lblAppTitle.Text = "Humanitarian PM";
-
-            // 
+            //
             // btnToggleSidebar
-            // 
+            //
             this.btnToggleSidebar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnToggleSidebar.BackColor = System.Drawing.Color.Transparent;
             this.btnToggleSidebar.FlatAppearance.BorderSize = 0;
@@ -237,10 +223,9 @@
             this.btnToggleSidebar.Text = "☰";
             this.btnToggleSidebar.UseVisualStyleBackColor = false;
             this.btnToggleSidebar.Click += new System.EventHandler(this.btnToggleSidebar_Click);
-
-            // 
+            //
             // pnlNavigation
-            // 
+            //
             this.pnlNavigation.Controls.Add(this.pnlModulesGroup);
             this.pnlNavigation.Controls.Add(this.pnlSectionsGroup);
             this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -249,10 +234,9 @@
             this.pnlNavigation.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
             this.pnlNavigation.Size = new System.Drawing.Size(280, 566);
             this.pnlNavigation.TabIndex = 1;
-
-            // 
+            //
             // pnlSectionsGroup
-            // 
+            //
             this.pnlSectionsGroup.Controls.Add(this.btnAddSection);
             this.pnlSectionsGroup.Controls.Add(this.tvwSections);
             this.pnlSectionsGroup.Controls.Add(this.lblSectionsTitle);
@@ -261,10 +245,9 @@
             this.pnlSectionsGroup.Name = "pnlSectionsGroup";
             this.pnlSectionsGroup.Size = new System.Drawing.Size(240, 280);
             this.pnlSectionsGroup.TabIndex = 0;
-
-            // 
+            //
             // lblSectionsTitle
-            // 
+            //
             this.lblSectionsTitle.AutoSize = true;
             this.lblSectionsTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSectionsTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
@@ -275,10 +258,9 @@
             this.lblSectionsTitle.Size = new System.Drawing.Size(67, 32);
             this.lblSectionsTitle.TabIndex = 0;
             this.lblSectionsTitle.Text = "Sections";
-
-            // 
+            //
             // tvwSections
-            // 
+            //
             this.tvwSections.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.tvwSections.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tvwSections.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -289,10 +271,9 @@
             this.tvwSections.Size = new System.Drawing.Size(240, 208);
             this.tvwSections.TabIndex = 1;
             this.tvwSections.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvwSections_AfterSelect);
-
-            // 
+            //
             // btnAddSection
-            // 
+            //
             this.btnAddSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.btnAddSection.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAddSection.FlatAppearance.BorderSize = 0;
@@ -307,10 +288,9 @@
             this.btnAddSection.Text = "+ Add New Section";
             this.btnAddSection.UseVisualStyleBackColor = false;
             this.btnAddSection.Click += new System.EventHandler(this.btnAddSection_Click);
-
-            // 
+            //
             // pnlModulesGroup
-            // 
+            //
             this.pnlModulesGroup.Controls.Add(this.flpModuleButtons);
             this.pnlModulesGroup.Controls.Add(this.lblModulesTitle);
             this.pnlModulesGroup.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -318,10 +298,9 @@
             this.pnlModulesGroup.Name = "pnlModulesGroup";
             this.pnlModulesGroup.Size = new System.Drawing.Size(240, 246);
             this.pnlModulesGroup.TabIndex = 1;
-
-            // 
+            //
             // lblModulesTitle
-            // 
+            //
             this.lblModulesTitle.AutoSize = true;
             this.lblModulesTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblModulesTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
@@ -332,10 +311,9 @@
             this.lblModulesTitle.Size = new System.Drawing.Size(67, 52);
             this.lblModulesTitle.TabIndex = 0;
             this.lblModulesTitle.Text = "Modules";
-
-            // 
+            //
             // flpModuleButtons
-            // 
+            //
             this.flpModuleButtons.AutoScroll = true;
             this.flpModuleButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpModuleButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -344,35 +322,38 @@
             this.flpModuleButtons.Size = new System.Drawing.Size(240, 194);
             this.flpModuleButtons.TabIndex = 1;
             this.flpModuleButtons.WrapContents = false;
-
-            // 
+            //
             // pnlMainContent
-            // 
+            //
             this.pnlMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
-            this.pnlMainContent.Controls.Add(this.pnlDashboardCards);
+            this.pnlMainContent.Controls.Add(this.tlpDashboardLayout);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMainContent.Location = new System.Drawing.Point(280, 0);
             this.pnlMainContent.Name = "pnlMainContent";
             this.pnlMainContent.Padding = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.pnlMainContent.Size = new System.Drawing.Size(920, 636);
             this.pnlMainContent.TabIndex = 1;
-
-            // 
-            // pnlDashboardCards
-            // 
-            this.pnlDashboardCards.AutoScroll = true;
-            this.tlpDashboardLayout.Controls.Add(this.pnlQuickActions, 0, 2);
-            this.tlpDashboardLayout.Controls.Add(this.pnlQuickStats, 0, 1);
+            //
+            // tlpDashboardLayout
+            //
+            this.tlpDashboardLayout.AutoScroll = true;
+            this.tlpDashboardLayout.ColumnCount = 1;
+            this.tlpDashboardLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpDashboardLayout.Controls.Add(this.pnlWelcomeSection, 0, 0);
-            this.pnlDashboardCards.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDashboardCards.Location = new System.Drawing.Point(30, 30);
-            this.pnlDashboardCards.Name = "pnlDashboardCards";
-            this.pnlDashboardCards.Size = new System.Drawing.Size(860, 576);
-            this.pnlDashboardCards.TabIndex = 0;
-
-            // 
+            this.tlpDashboardLayout.Controls.Add(this.pnlQuickStats, 0, 1);
+            this.tlpDashboardLayout.Controls.Add(this.pnlQuickActions, 0, 2);
+            this.tlpDashboardLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDashboardLayout.Location = new System.Drawing.Point(30, 30);
+            this.tlpDashboardLayout.Name = "tlpDashboardLayout";
+            this.tlpDashboardLayout.RowCount = 3;
+            this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpDashboardLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDashboardLayout.Size = new System.Drawing.Size(860, 576);
+            this.tlpDashboardLayout.TabIndex = 0;
+            //
             // pnlWelcomeSection
-            // 
+            //
             this.pnlWelcomeSection.BackColor = System.Drawing.Color.White;
             this.pnlWelcomeSection.Controls.Add(this.lblWelcomeSubtitle);
             this.pnlWelcomeSection.Controls.Add(this.lblWelcomeTitle);
@@ -383,10 +364,9 @@
             this.pnlWelcomeSection.Padding = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.pnlWelcomeSection.Size = new System.Drawing.Size(860, 120);
             this.pnlWelcomeSection.TabIndex = 0;
-
-            // 
+            //
             // lblWelcomeTitle
-            // 
+            //
             this.lblWelcomeTitle.AutoSize = true;
             this.lblWelcomeTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblWelcomeTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
@@ -396,10 +376,9 @@
             this.lblWelcomeTitle.Size = new System.Drawing.Size(174, 45);
             this.lblWelcomeTitle.TabIndex = 0;
             this.lblWelcomeTitle.Text = "Welcome";
-
-            // 
+            //
             // lblWelcomeSubtitle
-            // 
+            //
             this.lblWelcomeSubtitle.AutoSize = true;
             this.lblWelcomeSubtitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblWelcomeSubtitle.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -410,10 +389,9 @@
             this.lblWelcomeSubtitle.Size = new System.Drawing.Size(434, 29);
             this.lblWelcomeSubtitle.TabIndex = 1;
             this.lblWelcomeSubtitle.Text = "Manage your humanitarian projects efficiently and effectively";
-
-            // 
+            //
             // pnlQuickStats
-            // 
+            //
             this.pnlQuickStats.BackColor = System.Drawing.Color.White;
             this.pnlQuickStats.Controls.Add(this.pnlStatsCards);
             this.pnlQuickStats.Controls.Add(this.lblQuickStatsTitle);
@@ -424,10 +402,9 @@
             this.pnlQuickStats.Padding = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.pnlQuickStats.Size = new System.Drawing.Size(860, 200);
             this.pnlQuickStats.TabIndex = 1;
-
-            // 
+            //
             // lblQuickStatsTitle
-            // 
+            //
             this.lblQuickStatsTitle.AutoSize = true;
             this.lblQuickStatsTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblQuickStatsTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
@@ -438,10 +415,9 @@
             this.lblQuickStatsTitle.Size = new System.Drawing.Size(134, 50);
             this.lblQuickStatsTitle.TabIndex = 0;
             this.lblQuickStatsTitle.Text = "Quick Stats";
-
-            // 
+            //
             // pnlStatsCards
-            // 
+            //
             this.pnlStatsCards.Controls.Add(this.pnlBudgetCard);
             this.pnlStatsCards.Controls.Add(this.pnlBeneficiariesCard);
             this.pnlStatsCards.Controls.Add(this.pnlProjectsCard);
@@ -450,10 +426,9 @@
             this.pnlStatsCards.Name = "pnlStatsCards";
             this.pnlStatsCards.Size = new System.Drawing.Size(800, 90);
             this.pnlStatsCards.TabIndex = 1;
-
-            // 
+            //
             // pnlProjectsCard
-            // 
+            //
             this.pnlProjectsCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.pnlProjectsCard.Controls.Add(this.lblProjectsLabel);
             this.pnlProjectsCard.Controls.Add(this.lblProjectsCount);
@@ -464,10 +439,9 @@
             this.pnlProjectsCard.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
             this.pnlProjectsCard.Size = new System.Drawing.Size(250, 90);
             this.pnlProjectsCard.TabIndex = 0;
-
-            // 
+            //
             // lblProjectsCount
-            // 
+            //
             this.lblProjectsCount.AutoSize = true;
             this.lblProjectsCount.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblProjectsCount.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
@@ -477,10 +451,9 @@
             this.lblProjectsCount.Size = new System.Drawing.Size(32, 37);
             this.lblProjectsCount.TabIndex = 0;
             this.lblProjectsCount.Text = "0";
-
-            // 
+            //
             // lblProjectsLabel
-            // 
+            //
             this.lblProjectsLabel.AutoSize = true;
             this.lblProjectsLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblProjectsLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -490,10 +463,9 @@
             this.lblProjectsLabel.Size = new System.Drawing.Size(88, 19);
             this.lblProjectsLabel.TabIndex = 1;
             this.lblProjectsLabel.Text = "Total Projects";
-
-            // 
+            //
             // pnlBeneficiariesCard
-            // 
+            //
             this.pnlBeneficiariesCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
             this.pnlBeneficiariesCard.Controls.Add(this.lblBeneficiariesLabel);
             this.pnlBeneficiariesCard.Controls.Add(this.lblBeneficiariesCount);
@@ -504,10 +476,9 @@
             this.pnlBeneficiariesCard.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
             this.pnlBeneficiariesCard.Size = new System.Drawing.Size(250, 90);
             this.pnlBeneficiariesCard.TabIndex = 1;
-
-            // 
+            //
             // lblBeneficiariesCount
-            // 
+            //
             this.lblBeneficiariesCount.AutoSize = true;
             this.lblBeneficiariesCount.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBeneficiariesCount.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
@@ -517,10 +488,9 @@
             this.lblBeneficiariesCount.Size = new System.Drawing.Size(32, 37);
             this.lblBeneficiariesCount.TabIndex = 0;
             this.lblBeneficiariesCount.Text = "0";
-
-            // 
+            //
             // lblBeneficiariesLabel
-            // 
+            //
             this.lblBeneficiariesLabel.AutoSize = true;
             this.lblBeneficiariesLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBeneficiariesLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -530,10 +500,9 @@
             this.lblBeneficiariesLabel.Size = new System.Drawing.Size(84, 19);
             this.lblBeneficiariesLabel.TabIndex = 1;
             this.lblBeneficiariesLabel.Text = "Beneficiaries";
-
-            // 
+            //
             // pnlBudgetCard
-            // 
+            //
             this.pnlBudgetCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(158)))), ((int)(((byte)(11)))));
             this.pnlBudgetCard.Controls.Add(this.lblBudgetLabel);
             this.pnlBudgetCard.Controls.Add(this.lblBudgetAmount);
@@ -544,10 +513,9 @@
             this.pnlBudgetCard.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
             this.pnlBudgetCard.Size = new System.Drawing.Size(250, 90);
             this.pnlBudgetCard.TabIndex = 2;
-
-            // 
+            //
             // lblBudgetAmount
-            // 
+            //
             this.lblBudgetAmount.AutoSize = true;
             this.lblBudgetAmount.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBudgetAmount.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
@@ -557,10 +525,9 @@
             this.lblBudgetAmount.Size = new System.Drawing.Size(32, 37);
             this.lblBudgetAmount.TabIndex = 0;
             this.lblBudgetAmount.Text = "$0";
-
-            // 
+            //
             // lblBudgetLabel
-            // 
+            //
             this.lblBudgetLabel.AutoSize = true;
             this.lblBudgetLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBudgetLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -570,12 +537,11 @@
             this.lblBudgetLabel.Size = new System.Drawing.Size(84, 19);
             this.lblBudgetLabel.TabIndex = 1;
             this.lblBudgetLabel.Text = "Total Budget";
-
-            // 
+            //
             // pnlQuickActions
-            // 
+            //
             this.pnlQuickActions.BackColor = System.Drawing.Color.White;
-            this.pnlQuickActions.Controls.Add(this.pnlActionButtons);
+            this.pnlQuickActions.Controls.Add(this.flpActionButtons);
             this.pnlQuickActions.Controls.Add(this.lblQuickActionsTitle);
             this.pnlQuickActions.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlQuickActions.Location = new System.Drawing.Point(0, 320);
@@ -584,10 +550,9 @@
             this.pnlQuickActions.Padding = new System.Windows.Forms.Padding(30, 30, 30, 30);
             this.pnlQuickActions.Size = new System.Drawing.Size(860, 180);
             this.pnlQuickActions.TabIndex = 2;
-
-            // 
+            //
             // lblQuickActionsTitle
-            // 
+            //
             this.lblQuickActionsTitle.AutoSize = true;
             this.lblQuickActionsTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblQuickActionsTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
@@ -598,10 +563,9 @@
             this.lblQuickActionsTitle.Size = new System.Drawing.Size(149, 50);
             this.lblQuickActionsTitle.TabIndex = 0;
             this.lblQuickActionsTitle.Text = "Quick Actions";
-
-            // 
+            //
             // flpActionButtons
-            // 
+            //
             this.flpActionButtons.Controls.Add(this.btnNewProject);
             this.flpActionButtons.Controls.Add(this.btnViewReports);
             this.flpActionButtons.Controls.Add(this.btnManageBeneficiaries);
@@ -610,12 +574,10 @@
             this.flpActionButtons.Name = "flpActionButtons";
             this.flpActionButtons.Size = new System.Drawing.Size(800, 70);
             this.flpActionButtons.TabIndex = 1;
-
-            // 
+            //
             // btnNewProject
-            // 
+            //
             this.btnNewProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.btnNewProject.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnNewProject.FlatAppearance.BorderSize = 0;
             this.btnNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewProject.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
@@ -629,17 +591,15 @@
             this.btnNewProject.Text = "📋 New Project";
             this.btnNewProject.UseVisualStyleBackColor = false;
             this.btnNewProject.Click += new System.EventHandler(this.btnNewProject_Click);
-
-            // 
+            //
             // btnViewReports
-            // 
+            //
             this.btnViewReports.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
-            this.btnViewReports.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnViewReports.FlatAppearance.BorderSize = 0;
             this.btnViewReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewReports.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnViewReports.ForeColor = System.Drawing.Color.White;
-            this.btnViewReports.Location = new System.Drawing.Point(180, 0);
+            this.btnViewReports.Location = new System.Drawing.Point(200, 0);
             this.btnViewReports.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnViewReports.Name = "btnViewReports";
             this.btnViewReports.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
@@ -648,17 +608,15 @@
             this.btnViewReports.Text = "📊 View Reports";
             this.btnViewReports.UseVisualStyleBackColor = false;
             this.btnViewReports.Click += new System.EventHandler(this.btnViewReports_Click);
-
-            // 
+            //
             // btnManageBeneficiaries
-            // 
+            //
             this.btnManageBeneficiaries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(158)))), ((int)(((byte)(11)))));
-            this.btnManageBeneficiaries.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnManageBeneficiaries.FlatAppearance.BorderSize = 0;
             this.btnManageBeneficiaries.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageBeneficiaries.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnManageBeneficiaries.ForeColor = System.Drawing.Color.White;
-            this.btnManageBeneficiaries.Location = new System.Drawing.Point(360, 0);
+            this.btnManageBeneficiaries.Location = new System.Drawing.Point(400, 0);
             this.btnManageBeneficiaries.Name = "btnManageBeneficiaries";
             this.btnManageBeneficiaries.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnManageBeneficiaries.Size = new System.Drawing.Size(200, 70);
@@ -666,10 +624,9 @@
             this.btnManageBeneficiaries.Text = "👥 Manage Beneficiaries";
             this.btnManageBeneficiaries.UseVisualStyleBackColor = false;
             this.btnManageBeneficiaries.Click += new System.EventHandler(this.btnManageBeneficiaries_Click);
-
-            // 
+            //
             // DashboardForm
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(250)))), ((int)(((byte)(251)))));
@@ -685,14 +642,13 @@
             this.Text = "Humanitarian Project Management System - Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DashboardForm_FormClosing);
-
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.mainStatusStrip.ResumeLayout(false);
             this.mainStatusStrip.PerformLayout();
             this.pnlMainContainer.ResumeLayout(false);
             this.pnlMainContent.ResumeLayout(false);
-            this.pnlDashboardCards.ResumeLayout(false);
+            this.tlpDashboardLayout.ResumeLayout(false);
             this.pnlQuickStats.ResumeLayout(false);
             this.pnlQuickStats.PerformLayout();
             this.pnlStatsCards.ResumeLayout(false);

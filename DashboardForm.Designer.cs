@@ -78,7 +78,7 @@
             this.mainStatusStrip.SuspendLayout();
             this.pnlMainContainer.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
-            this.pnlDashboardCards.SuspendLayout();
+            this.tlpDashboardLayout.SuspendLayout();
             this.pnlQuickStats.SuspendLayout();
             this.pnlStatsCards.SuspendLayout();
             this.pnlProjectsCard.SuspendLayout();
@@ -86,7 +86,7 @@
             this.pnlBudgetCard.SuspendLayout();
             this.pnlWelcomeSection.SuspendLayout();
             this.pnlQuickActions.SuspendLayout();
-            this.pnlActionButtons.SuspendLayout();
+            this.flpActionButtons.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.pnlSidebarHeader.SuspendLayout();
             this.pnlNavigation.SuspendLayout();
@@ -361,9 +361,9 @@
             // pnlDashboardCards
             // 
             this.pnlDashboardCards.AutoScroll = true;
-            this.pnlDashboardCards.Controls.Add(this.pnlQuickActions);
-            this.pnlDashboardCards.Controls.Add(this.pnlQuickStats);
-            this.pnlDashboardCards.Controls.Add(this.pnlWelcomeSection);
+            this.tlpDashboardLayout.Controls.Add(this.pnlQuickActions, 0, 2);
+            this.tlpDashboardLayout.Controls.Add(this.pnlQuickStats, 0, 1);
+            this.tlpDashboardLayout.Controls.Add(this.pnlWelcomeSection, 0, 0);
             this.pnlDashboardCards.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboardCards.Location = new System.Drawing.Point(30, 30);
             this.pnlDashboardCards.Name = "pnlDashboardCards";
@@ -600,16 +600,16 @@
             this.lblQuickActionsTitle.Text = "Quick Actions";
 
             // 
-            // pnlActionButtons
+            // flpActionButtons
             // 
-            this.pnlActionButtons.Controls.Add(this.btnManageBeneficiaries);
-            this.pnlActionButtons.Controls.Add(this.btnViewReports);
-            this.pnlActionButtons.Controls.Add(this.btnNewProject);
-            this.pnlActionButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlActionButtons.Location = new System.Drawing.Point(30, 80);
-            this.pnlActionButtons.Name = "pnlActionButtons";
-            this.pnlActionButtons.Size = new System.Drawing.Size(800, 70);
-            this.pnlActionButtons.TabIndex = 1;
+            this.flpActionButtons.Controls.Add(this.btnNewProject);
+            this.flpActionButtons.Controls.Add(this.btnViewReports);
+            this.flpActionButtons.Controls.Add(this.btnManageBeneficiaries);
+            this.flpActionButtons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpActionButtons.Location = new System.Drawing.Point(30, 80);
+            this.flpActionButtons.Name = "flpActionButtons";
+            this.flpActionButtons.Size = new System.Drawing.Size(800, 70);
+            this.flpActionButtons.TabIndex = 1;
 
             // 
             // btnNewProject
@@ -706,7 +706,7 @@
             this.pnlWelcomeSection.PerformLayout();
             this.pnlQuickActions.ResumeLayout(false);
             this.pnlQuickActions.PerformLayout();
-            this.pnlActionButtons.ResumeLayout(false);
+            this.flpActionButtons.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebarHeader.ResumeLayout(false);
             this.pnlSidebarHeader.PerformLayout();
@@ -743,7 +743,7 @@
         private System.Windows.Forms.Label lblModulesTitle;
         private System.Windows.Forms.FlowLayoutPanel flpModuleButtons;
         private System.Windows.Forms.Panel pnlMainContent;
-        private System.Windows.Forms.Panel pnlDashboardCards;
+        private System.Windows.Forms.TableLayoutPanel tlpDashboardLayout;
         private System.Windows.Forms.Panel pnlWelcomeSection;
         private System.Windows.Forms.Label lblWelcomeTitle;
         private System.Windows.Forms.Label lblWelcomeSubtitle;
@@ -761,7 +761,7 @@
         private System.Windows.Forms.Label lblBudgetAmount;
         private System.Windows.Forms.Panel pnlQuickActions;
         private System.Windows.Forms.Label lblQuickActionsTitle;
-        private System.Windows.Forms.Panel pnlActionButtons;
+        private System.Windows.Forms.FlowLayoutPanel flpActionButtons;
         private System.Windows.Forms.Button btnNewProject;
         private System.Windows.Forms.Button btnViewReports;
         private System.Windows.Forms.Button btnManageBeneficiaries;
